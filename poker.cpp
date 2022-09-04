@@ -244,7 +244,7 @@ for(int t=0;;t++){
         double ai=(sum_bet[cpucard]/(looked[cpucard]+1.0))/div;
         int cpubet=(int)floor((double)cpu*ai);
         if(cpucard>=3){
-        if(rnd(1,100)<=80){cpubet=cpu;}
+        cpubet=cpu;
         }
         if(cpubet==cpu&&cpubet>0){
             cout<<"cpu=allin="<<cpubet<<endl;
