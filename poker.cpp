@@ -114,15 +114,12 @@ int bet=0;
     
 bool me_allin=false;
 bool cpu_allin=false;
+bool breek=false;
     
 for(int t=0;;t++){
-    cout<<"-------------------"<<endl;
-    cout<<"mychip="<<me<<endl;
-    cout<<"cpuchip="<<cpu<<endl;
-    cout<<"my_card=("<<type[mycard]<<","<<myrank<<")"<<endl;   
-    cout<<"pot="<<pot<<endl;
-    cout<<"bet="<<bet<<endl;
-    cout<<"-------------------"<<endl;
+    
+    if(breek){break;}   
+    
         if(t==0&&D==0){
         me-=sb;
         cpu-=bb;
@@ -131,9 +128,14 @@ for(int t=0;;t++){
         me-=bb;
         cpu-=sb;
         }
-    
-        if(me<=0&&me_allin==false){lose++;break;}
-        if(cpu<=0&&cpu_allin==false){win++;break;}    
+	
+	cout<<"-------------------"<<endl;
+	cout<<"mychip="<<me<<endl;
+	cout<<"cpuchip="<<cpu<<endl;
+	cout<<"my_card=("<<type[mycard]<<","<<myrank<<")"<<endl;
+	cout<<"pot="<<pot<<endl;
+	cout<<"bet="<<bet<<endl;
+	cout<<"-------------------"<<endl;
     
         if(D==0){
         cout<<"me_round:"<<t+1<<endl;
@@ -212,10 +214,24 @@ for(int t=0;;t++){
             }
             cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl;
             D++;D%=2;
+            pot=0;
+            bet=0;
+            if(me<=0){lose++;breek=true;}
+            if(cpu<=0){win++;breek=true;}  
             break;
         }
-        else if(ans=="fold"){D++;D%=2;cpu+=pot;cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl;break;}
+        else if(ans=="fold"){
+            D++;
+            D%=2;
+            cpu+=pot;
+            pot=0;
+            bet=0;
+            cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl;
+            if(me<=0){lose++;breek=true;}
+            if(cpu<=0){win++;breek=true;}
+            break;
         }
+        }//D=0
         else{
         cout<<"cpu_round:"<<t+1<<endl;
             
@@ -227,8 +243,16 @@ for(int t=0;;t++){
         }
         double ai=(sum_bet[cpucard]/(looked[cpucard]+1.0))/div;
         int cpubet=(int)floor((double)cpu*ai);
-        if(cpucard>=3){
-        if(rnd(1,100)<=50){cpubet=cpu;}
+        if(cpucard>=1){
+        if(cpucard==1){
+        if(rnd(1,100)<=20){cpubet=cpu;}
+        }
+        else if(cpucard==2){
+        if(rnd(1,100)<=30){cpubet=cpu;}
+        }
+        else{
+        if(rnd(1,100)<=80){cpubet=cpu;}
+        }
         }
         if(cpubet==cpu&&cpubet>0){
             cout<<"cpu=allin="<<cpubet<<endl;
@@ -260,6 +284,10 @@ for(int t=0;;t++){
             }
             cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl; 
             D++;D%=2;
+            pot=0;
+            bet=0;
+            if(me<=0){lose++;breek=true;}
+            if(cpu<=0){win++;breek=true;}
             break;
             }
             else{
@@ -292,6 +320,10 @@ for(int t=0;;t++){
             }
             cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl; 
             D++;D%=2;
+            pot=0;
+            bet=0;
+            if(me<=0){lose++;breek=true;}
+            if(cpu<=0){win++;breek=true;}
             break;
             
             }
@@ -309,6 +341,10 @@ for(int t=0;;t++){
             cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl;
             me+=pot;
             D++;D%=2;
+            pot=0;
+            bet=0;
+            if(me<=0){lose++;breek=true;}
+            if(cpu<=0){win++;breek=true;}
             break;
         }
         else{
@@ -334,6 +370,10 @@ for(int t=0;;t++){
             }
             cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl; 
             D++;D%=2;
+            pot=0;
+            bet=0;
+            if(me<=0){lose++;breek=true;}
+            if(cpu<=0){win++;breek=true;}
             break;
                 
             }
@@ -342,16 +382,16 @@ for(int t=0;;t++){
             cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl;
             me+=pot;
             D++;D%=2;
+            pot=0;
+            bet=0;
+            if(me<=0){lose++;breek=true;}
+            if(cpu<=0){win++;breek=true;}
             break;
             }
         }   
-        }
-    
+     }
 }
-
-    
-}
-    
+}    
 }
 
 
