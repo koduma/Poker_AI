@@ -243,11 +243,8 @@ for(int t=0;;t++){
         }
         double ai=(sum_bet[cpucard]/(looked[cpucard]+1.0))/div;
         int cpubet=(int)floor((double)cpu*ai);
-        if(cpucard>=1){
-        if(cpucard==1){
-        if(rnd(1,100)<=20){cpubet=cpu;}
-        }
-        else if(cpucard==2){
+        if(cpucard>=2){
+        if(cpucard==2){
         if(rnd(1,100)<=30){cpubet=cpu;}
         }
         else{
