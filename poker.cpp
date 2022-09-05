@@ -152,8 +152,8 @@ for(int t=0;;t++){
         break;
         }
         }
-    
-    cout<<"-------------------"<<endl;
+	
+	cout<<"-------------------"<<endl;
 	cout<<"mychip="<<me<<endl;
 	cout<<"cpuchip="<<cpu<<endl;
 	cout<<"my_card=("<<type[mycard]<<","<<myrank<<")"<<endl;
