@@ -152,8 +152,8 @@ for(int t=0;;t++){
         break;
         }
         }
-	
-	cout<<"-------------------"<<endl;
+    
+    cout<<"-------------------"<<endl;
 	cout<<"mychip="<<me<<endl;
 	cout<<"cpuchip="<<cpu<<endl;
 	cout<<"my_card=("<<type[mycard]<<","<<myrank<<")"<<endl;
@@ -266,10 +266,20 @@ for(int t=0;;t++){
         div+=sum_bet[h]/(looked[h]+1.0);
         }
         double ai=(sum_bet[cpucard]/(looked[cpucard]+1.0))/div;
-        int cpubet=(int)floor((double)cpu*ai*(0.5+(d_rnd()/100.0)));
-        if(cpucard>=3 || cpubet>cpu){
+        int cpubet=(int)floor((double)cpu*ai*(0.5+(d_rnd()/100.0))/2.0);
+        if(cpucard>=2){
+        if(cpucard==2){
+            if(rnd(1,100)<=10){
+            cpubet=cpu;
+            }
+        }
+        else{
         cpubet=cpu;
         }
+        }
+        if(cpubet>cpu){
+        cpubet=cpu;
+        }    
         if(cpubet==cpu&&cpubet>0){
             cout<<"cpu=allin="<<cpubet<<endl;
             if(me_allin==true){
