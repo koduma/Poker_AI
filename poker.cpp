@@ -128,6 +128,30 @@ for(int t=0;;t++){
         me-=bb;
         cpu-=sb;
         }
+    
+        if(!me_allin&&!cpu_allin){
+    
+        if(me<=0||cpu<=0){
+        if(mycard>cpucard){
+            me+=pot;
+        }
+        else if(mycard==cpucard){
+        if(myrank>cpurank){me+=pot;}
+        else if(myrank==cpurank){me+=pot/2;cpu+=pot/2;}
+        else{cpu+=pot;}
+        }
+        else{
+        cpu+=pot;
+        }
+        pot=0;
+        bet=0;
+        if(me<=0){lose++;breek=true;}
+        if(cpu<=0){win++;breek=true;}
+        cout<<"my_card=("<<type[mycard]<<","<<myrank<<")"<<endl;
+        cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl;
+        break;
+        }
+        }
 	
 	cout<<"-------------------"<<endl;
 	cout<<"mychip="<<me<<endl;
