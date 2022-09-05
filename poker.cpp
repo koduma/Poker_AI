@@ -242,8 +242,8 @@ for(int t=0;;t++){
         div+=sum_bet[h]/(looked[h]+1.0);
         }
         double ai=(sum_bet[cpucard]/(looked[cpucard]+1.0))/div;
-        int cpubet=(int)floor((double)cpu*ai);
-        if(cpucard>=3){
+        int cpubet=(int)floor((double)cpu*ai*(0.5+(d_rnd()/100.0)));
+        if(cpucard>=3 || cpubet>cpu){
         cpubet=cpu;
         }
         if(cpubet==cpu&&cpubet>0){
