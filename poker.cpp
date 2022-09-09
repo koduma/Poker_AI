@@ -85,8 +85,8 @@ double deal1=d_rnd();
 double deal2=d_rnd();
 int mycard=0;
 int cpucard=0;
-int myrank=0;
-int cpurank=0;
+double myrank;
+double cpurank;
 
 for(int j=0;j<8;j++){
 if(pro[j]<deal1&&deal1<=pro[j+1]){
@@ -102,8 +102,8 @@ break;
 }
 }
 
-myrank=rnd(0,pattern[mycard]);
-cpurank=rnd(0,pattern[cpucard]);    
+myrank=(double)(pattern[mycard]-rnd(1,pattern[mycard]))*100.0/(double)pattern[mycard];
+cpurank=(double)(pattern[cpucard]-rnd(1,pattern[cpucard]))*100.0/(double)pattern[cpucard];   
     
 looked[mycard]+=1.0;
     
@@ -147,8 +147,8 @@ for(int t=0;;t++){
         bet=0;
         if(me<=0){lose++;breek=true;}
         if(cpu<=0){win++;breek=true;}
-        cout<<"my_card=("<<type[mycard]<<","<<myrank<<")"<<endl;
-        cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl;
+        cout<<"my_card=("<<type[mycard]<<",top"<<myrank<<"%)"<<endl;
+        cout<<"cpu_card=("<<type[cpucard]<<",top"<<cpurank<<"%)"<<endl;
         break;
         }
         }
@@ -156,7 +156,7 @@ for(int t=0;;t++){
 	cout<<"-------------------"<<endl;
 	cout<<"mychip="<<me<<endl;
 	cout<<"cpuchip="<<cpu<<endl;
-	cout<<"my_card=("<<type[mycard]<<","<<myrank<<")"<<endl;
+	cout<<"my_card=("<<type[mycard]<<",top"<<myrank<<"%)"<<endl;
 	cout<<"pot="<<pot<<endl;
 	cout<<"bet="<<bet<<endl;
 	cout<<"-------------------"<<endl;
@@ -236,7 +236,7 @@ for(int t=0;;t++){
             else{
             cpu+=pot;
             }
-            cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl;
+            cout<<"cpu_card=("<<type[cpucard]<<",top"<<cpurank<<"%)"<<endl;
             D++;D%=2;
             pot=0;
             bet=0;
@@ -250,7 +250,7 @@ for(int t=0;;t++){
             cpu+=pot;
             pot=0;
             bet=0;
-            cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl;
+            cout<<"cpu_card=("<<type[cpucard]<<",top"<<cpurank<<"%)"<<endl;
             if(me<=0){lose++;breek=true;}
             if(cpu<=0){win++;breek=true;}
             break;
@@ -308,7 +308,7 @@ for(int t=0;;t++){
             else{
             cpu+=pot;
             }
-            cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl; 
+            cout<<"cpu_card=("<<type[cpucard]<<",top"<<cpurank<<"%)"<<endl;
             D++;D%=2;
             pot=0;
             bet=0;
@@ -344,7 +344,7 @@ for(int t=0;;t++){
             else{
             cpu+=pot;
             }
-            cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl; 
+            cout<<"cpu_card=("<<type[cpucard]<<",top"<<cpurank<<"%)"<<endl; 
             D++;D%=2;
             pot=0;
             bet=0;
@@ -364,7 +364,7 @@ for(int t=0;;t++){
         }
         else if(cpubet==0){
             cout<<"cpu=fold"<<endl;
-            cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl;
+            cout<<"cpu_card=("<<type[cpucard]<<",top"<<cpurank<<"%)"<<endl;
             me+=pot;
             D++;D%=2;
             pot=0;
@@ -394,7 +394,7 @@ for(int t=0;;t++){
             else{
             cpu+=pot;
             }
-            cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl; 
+            cout<<"cpu_card=("<<type[cpucard]<<",top"<<cpurank<<"%)"<<endl;
             D++;D%=2;
             pot=0;
             bet=0;
@@ -405,7 +405,7 @@ for(int t=0;;t++){
             }
             else{
             cout<<"cpu=fold"<<endl;
-            cout<<"cpu_card=("<<type[cpucard]<<","<<cpurank<<")"<<endl;
+            cout<<"cpu_card=("<<type[cpucard]<<",top"<<cpurank<<"%)"<<endl;
             me+=pot;
             D++;D%=2;
             pot=0;
