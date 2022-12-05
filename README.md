@@ -1,6 +1,6 @@
 # Poker_AI
 
-ポーカーAIです。
+# 説明：ポーカーAIです。
 
 ## Compoler:g++
 
