@@ -1,5 +1,7 @@
 # Poker_AI
 
+ポーカーAIです。
+
 ## Compoler:g++
 
 ## Compile Command
