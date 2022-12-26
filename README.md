@@ -2,7 +2,7 @@
 
 ポーカーAIです。
 
-## Compoler:g++
+## Compler:g++
 
 ## Compile Command
 
