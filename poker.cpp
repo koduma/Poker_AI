@@ -136,7 +136,7 @@ for(int t=0;;t++){
             me+=pot;
         }
         else if(mycard==cpucard){
-        if(myrank>cpurank){me+=pot;}
+        if(myrank<cpurank){me+=pot;}
         else if(myrank==cpurank){me+=pot/2;cpu+=pot/2;}
         else{cpu+=pot;}
         }
@@ -229,7 +229,7 @@ for(int t=0;;t++){
             me+=pot;
             }
             else if(mycard==cpucard){
-            if(myrank>cpurank){me+=pot;}
+            if(myrank<cpurank){me+=pot;}
             else if(myrank==cpurank){me+=pot/2;cpu+=pot/2;}
             else{cpu+=pot;}
             }
@@ -301,7 +301,7 @@ for(int t=0;;t++){
             me+=pot;
             }
             else if(mycard==cpucard){
-            if(myrank>cpurank){me+=pot;}
+            if(myrank<cpurank){me+=pot;}
             else if(myrank==cpurank){me+=pot/2;cpu+=pot/2;}
             else{cpu+=pot;}
             }
@@ -337,7 +337,7 @@ for(int t=0;;t++){
             me+=pot;
             }
             else if(mycard==cpucard){
-            if(myrank>cpurank){me+=pot;}
+            if(myrank<cpurank){me+=pot;}
             else if(myrank==cpurank){me+=pot/2;cpu+=pot/2;}
             else{cpu+=pot;}
             }
@@ -387,7 +387,7 @@ for(int t=0;;t++){
             me+=pot;
             }
             else if(mycard==cpucard){
-            if(myrank>cpurank){me+=pot;}
+            if(myrank<cpurank){me+=pot;}
             else if(myrank==cpurank){me+=pot/2;cpu+=pot/2;}
             else{cpu+=pot;}
             }
